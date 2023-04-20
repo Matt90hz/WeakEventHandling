@@ -3,8 +3,18 @@ using System;
 
 namespace IncaTechnologies.WeakEventHandling
 {
+    /// <summary>
+    /// Factory for <see cref="IWeakSubscriber{TEventHandler}"/>.
+    /// </summary>
     public static class WeakSubscriberFactory
     {
+        /// <summary>
+        /// Creates an <see cref="IWeakSubscriber{TEventHandler}"/>.
+        /// </summary>
+        /// <typeparam name="TEventHandler">Type of the handler of the event to subscribe to.</typeparam>
+        /// <param name="eventHandler">Delegate or method callback the will be invoked when the event triggers.</param>
+        /// <returns>A new <see cref="IWeakSubscriber{TEventHandler}"/></returns>
+        /// <exception cref="NotImplementedException"></exception>
         public static IWeakSubscriber<TEventHandler> Create<TEventHandler>(TEventHandler eventHandler) where TEventHandler : Delegate
         {
             var parameters = eventHandler.Method.GetParameters();

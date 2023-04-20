@@ -22,7 +22,7 @@ Is better use this kind of weak event with generics delegates since the instanti
 
 #### Example
 ```csharp
-public class ExampleClass
+public class SingletonService
 {
     private readonly IWeakEvent<EventHandler<EventArgs>> _weakEvent = WeakEventFactory.CreateWeakEvent<EventHandler<EventArgs>>();
     
@@ -56,7 +56,7 @@ Most performat and less error prone implementation.
 ```csharp
 public delegate void MyEventHandler(ExampleClass sender, int value);
      
-public class ExampleClass
+public class SingletonService
 {
     private readonly IParamsWeakEvent<MyEventHandler, ExampleClass, int> _weakEvent = WeakEventFactory.CreateParamsWeakEvent<MyEventHandler, ExampleClass, int>();
     
@@ -90,11 +90,11 @@ This is a solution in case you are not in control or you do not want to edit the
 
 #### Example
 ```csharp
-public class MyClass
+public class MyTransientClass
 {
     public byte[]? MyFatImage { get; set; }
 
-    public MyClass(ISingletonService service)
+    public MyTransientClass(ISingletonService service)
     {
         service.SomethingChanged += WeakSubscriberFactory.Create<EventHandler<Something>>(SingletonService_SomethingChanged).WeakHandler;
     }
@@ -105,3 +105,19 @@ public class MyClass
     }
 }
 ```
+
+## How about the performances?
+
+I performed some banchmarks here the result:
+
+![Image](https://raw.githubusercontent.com/Matt90hz/WeakEventHandling/master/IncaTechnologies.WeakEventHandling/Benchmarks.jpg)
+
+### Disclaimer
+
+Just to have mean of comparison I used [ThomasLevesque WeakEvent](https://github.com/thomaslevesque/WeakEvent/) since it looks to be the most popular on NuGet.org. But I am not affiliated to them and none of their code has been used to create this library.
+
+If anyone has any complain about the use of this package in my benchmarks plaese open an [issue](https://github.com/Matt90hz/WeakEventHandling/issues) on GitHub or sand an email and I will immediatly remove any refererence to this library.
+
+## Contribution
+
+You like this library and you want to add or change something. Feel free to do it, just create your pull request on [GitHub](https://github.com/Matt90hz/WeakEventHandling).
