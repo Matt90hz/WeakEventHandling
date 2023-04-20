@@ -9,7 +9,7 @@ namespace IncaTechnologies.WeakEventHandling.Abstracts
         public AbstractStaticEventHandler(TEventHandler eventHandler)
         {
             _originalDelegateHashCode = eventHandler.GetHashCode();
-        }
+        }    
 
         public bool Equals(TEventHandler other)
         {
