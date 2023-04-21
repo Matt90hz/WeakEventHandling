@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace IncaTechnologies.WeakEventHandling.Interfaces
 {
+#pragma warning disable CA1711
     /// <summary>
     /// <see cref="IWeakEvent{TEventHandler}"/> and <see cref="IParamsWeakEvent{TEventHandler, TParam1, TParam2, TParam3}"/> store this instead of the original handler.
     /// This handler retain only a <see cref="WeakReference"/> to the target of the original handler.
@@ -40,13 +42,13 @@ namespace IncaTechnologies.WeakEventHandling.Interfaces
     /// <see cref="IWeakEvent{TEventHandler}"/> and <see cref="IParamsWeakEvent{TEventHandler, TParam1}"/> store this instead of the original handler.
     /// This handler retain only a <see cref="WeakReference"/> to the target of the original handler.
     /// </summary>
-    /// <typeparam name="TParam1"></typeparam>
+    /// <typeparam name="TParam"></typeparam>
     public interface IWeakEventHandler<TParam> : IWeak
     {
         /// <summary>
         /// Invokes the handler on the original target.
         /// </summary>
-        /// <param name="param1"></param>
+        /// <param name="param"></param>
         void Invoke(TParam param);
     }
 
@@ -72,4 +74,5 @@ namespace IncaTechnologies.WeakEventHandling.Interfaces
         /// </summary>
         bool IsAlive { get; }
     }
+#pragma warning restore CA1711
 }

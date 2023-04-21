@@ -6,6 +6,24 @@
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageIcon>IncaTechnologies_logo_128x128.png</PackageIcon>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <Company></Company>
+    <Product>IncaTechnologies Weak Event Handling</Product>
+    <Authors>IncaTechnologies</Authors>
+    <PackageId>IncaTechnologies.WeakEventHandling</PackageId>
+    <Title>IncaTechnologies Weak Event Handling</Title>
+    <Version>1.0.1</Version>
+    <Description>Library to create weak events and prevent memory leaks.</Description>
+    <Copyright>IncaTechnologies - 2023</Copyright>
+    <PackageProjectUrl>https://github.com/Matt90hz/WeakEventHandling</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Matt90hz/WeakEventHandling.git</RepositoryUrl>
+    <PackageTags>incatechnologies; weak; event; handelr; subscriber; </PackageTags>
+    <PackageReleaseNotes>1.0.0 - First release
+1.0.1 - Improved the cleaning of dead reference in the weak events</PackageReleaseNotes>
+    <PackageOutputPath>..\.nupkg</PackageOutputPath>
+    <NeutralLanguage>en</NeutralLanguage>
+    <EnableNETAnalyzers>True</EnableNETAnalyzers>
+    <AnalysisLevel>6.0-recommended</AnalysisLevel>
   </PropertyGroup>
 
   <ItemGroup>

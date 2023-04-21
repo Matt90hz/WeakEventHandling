@@ -38,6 +38,9 @@ namespace IncaTechnologies.WeakEventHandling.Interfaces
     /// </exsample>
     /// </summary>
     /// <typeparam name="TEventHandler">The type of the event handlet that the event will exspose.</typeparam>
+    /// <typeparam name="TParam1">First parameter type of the event handler.</typeparam>
+    /// <typeparam name="TParam2">Second parameter type of the event handler.</typeparam>
+    /// <typeparam name="TParam3">Third parameter type of the event handler.</typeparam>
     public interface IParamsWeakEvent<TEventHandler, TParam1, TParam2, TParam3> : IWeakEventAccessor<TEventHandler>, IWeakEventInvokeParams<TParam1, TParam2, TParam3>
         where TEventHandler : Delegate
     {
@@ -80,6 +83,8 @@ namespace IncaTechnologies.WeakEventHandling.Interfaces
     /// </exsample>
     /// </summary>
     /// <typeparam name="TEventHandler">The type of the event handlet that the event will exspose.</typeparam>
+    /// <typeparam name="TParam1">First parameter type of the event handler.</typeparam>
+    /// <typeparam name="TParam2">Second parameter type of the event handler.</typeparam>
     public interface IParamsWeakEvent<TEventHandler, TParam1, TParam2> : IWeakEventAccessor<TEventHandler>, IWeakEventInvokeParams<TParam1, TParam2>
         where TEventHandler : Delegate
     {
@@ -121,6 +126,7 @@ namespace IncaTechnologies.WeakEventHandling.Interfaces
     /// </exsample>
     /// </summary>
     /// <typeparam name="TEventHandler">The type of the event handlet that the event will exspose.</typeparam>
+    /// <typeparam name="TParam1">First parameter type of the event handler.</typeparam>
     public interface IParamsWeakEvent<TEventHandler, TParam1> : IWeakEventAccessor<TEventHandler>, IWeakEventInvokeParams<TParam1>
         where TEventHandler : Delegate
     {

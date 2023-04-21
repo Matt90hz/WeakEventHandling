@@ -1,7 +1,7 @@
 ﻿namespace IncaTechnologies.WeakEventHandling.Interfaces
 {
     /// <summary>
-    /// Rappresent the invoke functionality of <see cref="IWeakEventInvokeParams{TEventHandler, TParam1, TParam2, TParam3}"/>.
+    /// Rappresent the invoke functionality of <see cref="IParamsWeakEvent{TEventHandler, TParam1, TParam2, TParam3}"/>.
     /// </summary>
     /// <typeparam name="TParam1"></typeparam>
     /// <typeparam name="TParam2"></typeparam>

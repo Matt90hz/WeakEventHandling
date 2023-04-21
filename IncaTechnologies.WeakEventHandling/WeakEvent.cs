@@ -1,4 +1,5 @@
 ﻿using IncaTechnologies.WeakEventHandling.Interfaces;
+using IncaTechnologies.WeakEventHandling.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,15 +22,21 @@ namespace IncaTechnologies.WeakEventHandling
             _weakEventHandelerFactory = weakEventHandelerFactory;
         }
 
+        /// <inheritdoc/>
         public void Add(TEventHandler eventHandler)
         {
+            _handlers.ClearDead();
+
             var weakHandler = _weakEventHandelerFactory.CreateWeakEventHandler<TParam1, TParam2, TParam3>(eventHandler);
 
             _handlers.Add(weakHandler);
         }
 
+        /// <inheritdoc/>
         public void Remove(TEventHandler eventHandler)
         {
+            _handlers.ClearDead();
+
             var toRemove = _handlers.FirstOrDefault(h => h.Equals(eventHandler));
 
             _handlers.Remove(toRemove);
@@ -52,6 +59,7 @@ namespace IncaTechnologies.WeakEventHandling
                 i--;
             }
         }
+
     }
 
     /// <inheritdoc cref="IWeakEvent{TEventHandler}"/>
@@ -73,6 +81,8 @@ namespace IncaTechnologies.WeakEventHandling
         /// <inheritdoc/>
         public void Add(TEventHandler eventHandler)
         {
+            _handlers.ClearDead();
+
             var weakHandler = _weakEventHandelerFactory.CreateWeakEventHandler<TParam1, TParam2>(eventHandler);
 
             _handlers.Add(weakHandler);
@@ -81,6 +91,8 @@ namespace IncaTechnologies.WeakEventHandling
         /// <inheritdoc/>
         public void Remove(TEventHandler eventHandler)
         {
+            _handlers.ClearDead();
+
             var toRemove = _handlers.FirstOrDefault(h => h.Equals(eventHandler));
 
             _handlers.Remove(toRemove);
@@ -125,6 +137,8 @@ namespace IncaTechnologies.WeakEventHandling
         /// <inheritdoc/>
         public void Add(TEventHandler eventHandler)
         {
+            _handlers.ClearDead();
+
             var weakHandler = _weakEventHandelerFactory.CreateWeakEventHandler<TParam>(eventHandler);
 
             _handlers.Add(weakHandler);
@@ -133,6 +147,8 @@ namespace IncaTechnologies.WeakEventHandling
         /// <inheritdoc/>
         public void Remove(TEventHandler eventHandler)
         {
+            _handlers.ClearDead();
+
             var toRemove = _handlers.FirstOrDefault(h => h.Equals(eventHandler));
 
             _handlers.Remove(toRemove);
@@ -177,6 +193,8 @@ namespace IncaTechnologies.WeakEventHandling
         /// <inheritdoc/>
         public void Add(TEventHandler eventHandler)
         {
+            _handlers.ClearDead();
+
             var weakHandler = _weakEventHandelerFactory.CreateWeakEventHandler(eventHandler);
 
             _handlers.Add(weakHandler);
@@ -185,6 +203,8 @@ namespace IncaTechnologies.WeakEventHandling
         /// <inheritdoc/>
         public void Remove(TEventHandler eventHandler)
         {
+            _handlers.ClearDead();
+
             var toRemove = _handlers.FirstOrDefault(h => h.Equals(eventHandler));
 
             _handlers.Remove(toRemove);

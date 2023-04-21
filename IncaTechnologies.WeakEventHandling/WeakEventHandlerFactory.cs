@@ -39,7 +39,6 @@ namespace IncaTechnologies.WeakEventHandling
         /// </summary>
         /// <typeparam name="TParam1"></typeparam>
         /// <typeparam name="TParam2"></typeparam>
-        /// <typeparam name="TParam3"></typeparam>
         /// <param name="eventHandler"></param>
         /// <returns></returns>
         public IWeakEventHandler<TParam1, TParam2> CreateWeakEventHandler<TParam1, TParam2>(TEventHandler eventHandler)
@@ -62,8 +61,6 @@ namespace IncaTechnologies.WeakEventHandling
         /// Creates a new instance of <see cref="IWeakEventHandler{TParam1}"/> that can be a <see cref="StaticWeakEventHandler{TEventHandler, TParam1}"/> or <see cref="WeakEventHandler{TEventHandler, TOwner, TParam1}"/> depending on the kind of <paramref name="eventHandler"/>.
         /// </summary>
         /// <typeparam name="TParam1"></typeparam>
-        /// <typeparam name="TParam2"></typeparam>
-        /// <typeparam name="TParam3"></typeparam>
         /// <param name="eventHandler"></param>
         /// <returns></returns>
         public IWeakEventHandler<TParam1> CreateWeakEventHandler<TParam1>(TEventHandler eventHandler)
