@@ -145,5 +145,6 @@ namespace IncaTechnologies.WeakEventHandling.Extensions
                 throw new ArgumentException($"The event handler must be a void method with no parameters.", nameof(eventHandler), e);
             }
         }
+
     }
 }

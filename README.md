@@ -1,24 +1,24 @@
 # IncaTechnologies.WeakEventHandling
 
-Create weak event to prevent memory leaks in you application due to objects with differnt scope.
+Create weak event to prevent memory leaks in you application due to objects with different scope.
 
-## When to ues it?
+## When to use it?
 
-Singleton objects that expose events do not let the subscribers to be garbage collected. When you pass an instance method to an event by using the += operator a delegate get created form that behind the scene and a referece to the object that contains that method is stored inside the delegate. If the subscriber has a life cicle shorter than the class that exspose the event this can lead to a memory leak.
+Singleton objects that expose events do not let the subscribers to be garbage collected. When you pass an instance method to an event by using the += operator, a delegate is created behind the scene and a reference to the object that contains that method is stored inside the delegate. If the subscriber has a life cicle shorter than the class that expose the event this can lead to a memory leak.
 
-Is alway better to unsubscribe to event once the job is done but this sometime is can add a lot of complexity to the project. Use a weak event will prevent the memory leak.
+It is always better to unsubscribe from an event once the job is done. Unfortunately, this sometimes can add a lot of complexity to the project. The use of a weak event will prevent the memory leak.
 
-## How to use it
+## How to use it?
 
-Just use the `WeakEventFactory` to create a weak event for the handler of your choice. Remember that the handler must have the signature of a void method with a meximum of three parameters.
+Just use the `WeakEventFactory` to create a weak event for the handler of your choice. Remember that the handler must have the signature of a void method with a maximum of three parameters.
 
-> In the future I might implement a way to have more parameters. 
+> In the future, I might implement a way to have more parameters. 
 
 ### WeakEvent
 
-This kind of event just need the event handler type to be created, so is more concise than the `ParamsWeakEvent` but is less performat and the invoke method do not have contraint on the parameters. Be carful to pass the right parameters to the method or exceptions will be thorwn.
+This kind of event just needs the event handler type to be created. It is more concise than the `ParamsWeakEvent` but is less performant. Also the invoke method does not have constraints on the parameters. Be careful to pass the right parameters to the method or exceptions will be thrown.
 
-Is better use this kind of weak event with generics delegates since the instantiation can became verbose. Like `IParmasWeakEvent<MyEventHandler<MyClass, MyObject, string>, Myclass, MyObject, string>`, pretty verbose.
+It is advisable to use this kind of weak event with generic delegates since the instantiation can become verbose. Like `IParmasWeakEvent<MyEventHandler<MyClass, MyObject, string>, Myclass, MyObject, string>`, pretty verbose.
 
 #### Example
 ```csharp
@@ -50,7 +50,7 @@ public class SingletonService
 
 ### ParamsWeakEvent
 
-Most performat and less error prone implementation.
+More performant and less error prone implementation.
 
 #### Example
 ```csharp
@@ -86,7 +86,7 @@ public class SingletonService
 
 This is a solution in case you are not in control or you do not want to edit the class that expose the event. 
 
-**Be careful the object that subscribe to the event will be garbage collected but the `WeakSubscriber` is an object it self and it will leak. So make sense to use this only for heavy objects that want subscribe to an event and have a shorter life span than the event publisher.**
+**Be careful the object that subscribe to the event will be garbage collected but the `WeakSubscriber` is an object itself and it will leak. So, it makes sense to use it only for heavy objects that want to subscribe to an event and have a shorter life span than the event publisher.**
 
 #### Example
 ```csharp
@@ -108,16 +108,16 @@ public class MyTransientClass
 
 ## How about the performances?
 
-I performed some banchmarks here the result:
+I performed some benchmarks. Here the results:
 
 ![Image](https://raw.githubusercontent.com/Matt90hz/WeakEventHandling/master/IncaTechnologies.WeakEventHandling/Benchmarks.jpg)
 
 ### Disclaimer
 
-Just to have mean of comparison I used [ThomasLevesque WeakEvent](https://github.com/thomaslevesque/WeakEvent/) since it looks to be the most popular on NuGet.org. But I am not affiliated to them and none of their code has been used to create this library.
+For comparison purposes, I used [ThomasLevesque WeakEvent](https://github.com/thomaslevesque/WeakEvent/) since it looks to be the most popular on NuGet.org. But I am not affiliated to them and none of their code has been used to create this library.
 
-If anyone has any complain about the use of this package in my benchmarks plaese open an [issue](https://github.com/Matt90hz/WeakEventHandling/issues) on GitHub or sand an email and I will immediatly remove any refererence to this library.
+If anyone has any complain about the use of this package in my benchmarks please open an [issue](https://github.com/Matt90hz/WeakEventHandling/issues) on GitHub or send an email and I will immediately remove any refererence to this library.
 
 ## Contribution
 
-You like this library and you want to add or change something. Feel free to do it, just create your pull request on [GitHub](https://github.com/Matt90hz/WeakEventHandling).
+Do you like this library and you want to add or change something? Feel free to do it, just create your pull request on [GitHub](https://github.com/Matt90hz/WeakEventHandling).
