@@ -5,7 +5,9 @@ VisualStudioVersion = 17.5.33414.496
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test", "Test\Test.csproj", "{326D29E6-E89C-4C07-A5CC-EAE67EE66DED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IncaTechnologies.WeakEventHandling", "IncaTechnologies.WeakEventHandling\IncaTechnologies.WeakEventHandling.csproj", "{518833B1-AAB1-4B21-9526-FEA426D28E7A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IncaTechnologies.WeakEventHandling", "IncaTechnologies.WeakEventHandling\IncaTechnologies.WeakEventHandling.csproj", "{518833B1-AAB1-4B21-9526-FEA426D28E7A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest", "UnitTest\UnitTest.csproj", "{77576DCF-EF5B-41DF-88C6-71B673AC3A18}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{518833B1-AAB1-4B21-9526-FEA426D28E7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{518833B1-AAB1-4B21-9526-FEA426D28E7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{518833B1-AAB1-4B21-9526-FEA426D28E7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77576DCF-EF5B-41DF-88C6-71B673AC3A18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77576DCF-EF5B-41DF-88C6-71B673AC3A18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77576DCF-EF5B-41DF-88C6-71B673AC3A18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77576DCF-EF5B-41DF-88C6-71B673AC3A18}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

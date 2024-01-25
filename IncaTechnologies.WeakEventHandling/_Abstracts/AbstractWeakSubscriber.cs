@@ -27,13 +27,13 @@ namespace IncaTechnologies.WeakEventHandling.Abstracts
         public AbstractWeakSubscriber(TEventHandler callback)
         {
             _weakReference = new WeakReference<TOwner>((TOwner)callback.Target);
-            _hashCodeCloseHandler = callback.GetHashCode();
+            _hashCodeCloseHandler = callback.Method.GetHashCode();
         }
 
         /// <inheritdoc/>
         public bool Equals(TEventHandler other)
         {
-            return _weakReference.TryGetTarget(out var owner) && other.Target.Equals(owner);
+            return _weakReference.TryGetTarget(out var owner) && other.Target.Equals(owner) && other.Method.GetHashCode() == _hashCodeCloseHandler;
         }
 
         /// <inheritdoc/>

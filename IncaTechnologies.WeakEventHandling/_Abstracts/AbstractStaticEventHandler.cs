@@ -16,13 +16,13 @@ namespace IncaTechnologies.WeakEventHandling.Abstracts
         /// <param name="eventHandler"></param>
         public AbstractStaticEventHandler(TEventHandler eventHandler)
         {
-            _originalDelegateHashCode = eventHandler.GetHashCode();
+            _originalDelegateHashCode = eventHandler.Method.GetHashCode();
         }    
 
         /// <inheritdoc/>
         public bool Equals(TEventHandler other)
         {
-           return other.GetHashCode() == _originalDelegateHashCode;
+           return other.Method.GetHashCode() == _originalDelegateHashCode;
         }
 
         /// <inheritdoc/>

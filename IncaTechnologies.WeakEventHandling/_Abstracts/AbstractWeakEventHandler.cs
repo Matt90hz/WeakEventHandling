@@ -13,7 +13,7 @@ namespace IncaTechnologies.WeakEventHandling.Abstracts
         where TOwner : class
     {
         protected readonly WeakReference<TOwner> _weakReference;
-        protected readonly int _closeDelegateHasCode;
+        protected readonly int _closeDelegateHashCode;
 
         ///<inheritdoc/>
         public bool IsAlive => _weakReference.TryGetTarget(out _);
@@ -25,19 +25,21 @@ namespace IncaTechnologies.WeakEventHandling.Abstracts
         public AbstractWeakEventHandler(TEventHandler eventHandler)
         {
             _weakReference = new WeakReference<TOwner>((TOwner)eventHandler.Target);
-            _closeDelegateHasCode = eventHandler.GetHashCode();
+            _closeDelegateHashCode = eventHandler.Method.GetHashCode();
         }
 
         ///<inheritdoc/>
         public bool Equals(TEventHandler other)
         {
-            return _weakReference.TryGetTarget(out var target) && other.Target.Equals(target);
+            if (other.Target is null || _weakReference.TryGetTarget(out var target) is false) return false;
+
+            return other.Target.Equals(target) && _closeDelegateHashCode == other.Method.GetHashCode();
         }
 
         ///<inheritdoc/>
         public override int GetHashCode()
         {
-            return _closeDelegateHasCode;
+            return _closeDelegateHashCode;
         }
 
         ///<inheritdoc/>
@@ -45,9 +47,7 @@ namespace IncaTechnologies.WeakEventHandling.Abstracts
         {
             if (obj is TEventHandler eventHandler)
             {
-                if (!_weakReference.TryGetTarget(out var target)) return false;
-
-                return eventHandler.Target.Equals(target) && _closeDelegateHasCode == eventHandler.GetHashCode();
+                return Equals(eventHandler);
             }
 
             return ReferenceEquals(this, obj);
